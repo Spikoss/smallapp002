@@ -1,0 +1,36 @@
+<!--pages/weixincustomer/index.wxml-->
+<view class='container'>
+  <image class='weixin_banner' src='https://avatars2.githubusercontent.com/u/19703411?s=400&u=02a9a59df398a8334ab5c4e4c8152336bca30e96&v=4'></image>
+
+<view class='weixin_box'>
+  <swiper style="height: {{tabHeight?tabHeight+'px':'auto'}}" class='weixin_swiper_box' indicator-dots-box="{{indicatorDotsBox}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current='{{currentTab}}' bindchange='switchTab'>
+
+
+    <block  wx:for="{{weixin_content}}">
+      <swiper-item>
+
+        <view class='weixin_nextpage'>
+        <view>
+          <text class='weixin_title'>{{item.weixin_title}}</text>
+          <view class='weixin_line'></view></view> 
+          <image class="weixin_nextpage_icon"  data-current='{{item.id}}' src='../../images/nextpage.png' bindtap='nextPage'></image>
+        </view>
+
+        <text class='weixin_des' decode='ensp'>&ensp;&ensp;&ensp;&ensp;{{item.weixin_des}}</text>
+        <swiper class='weixin_swiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+          <block wx:for="{{item.weixin_images}}">
+            <swiper-item>
+              <image src="{{item}}" class='weixin_img' />
+            </swiper-item>
+          </block>
+        </swiper>
+        
+      </swiper-item>
+    </block>
+
+  </swiper>
+  </view>
+<view class='weixin_line_gray'></view>
+
+
+</view>
